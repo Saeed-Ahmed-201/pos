@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.pos.supplier.PurchaseOrder;
 import com.pos.supplier.RecieveProduct;
 import com.pos.user.User;
@@ -45,6 +46,10 @@ public class Product {
 	   
 	   @OneToMany(mappedBy = "product")
 	   private List<RecieveProduct> recieveProducts;
+	   
+	   @ManyToOne
+	   @JsonBackReference
+	   private Category category;
 	   
 
 }
